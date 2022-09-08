@@ -35,7 +35,8 @@ export default function Profile({ user, orders }) {
                 <h2>Amount: {formatMoney(order.amount)}</h2>
               </div>
               <div>
-                <h1>Receipt Email {order.receipt_email}</h1>
+                <h1>Receipt Email: {user.email}</h1>
+                {console.log(order)}
               </div>
             </Order>
           ))}

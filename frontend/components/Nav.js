@@ -13,7 +13,9 @@ export default function Nav() {
   const {user, error, isLoading } = useUser();
   return (
     <NavStyles>
-      <Link href={`/`}>Styled.</Link>
+      <Link href={`/`}>Styled</Link>      <span>
+
+      <Link href={`/store`}>Store</Link></span>
       <NavItems>
         <User/>
         <div onClick={() => setShowCart(true)}>

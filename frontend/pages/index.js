@@ -1,22 +1,16 @@
 import Head from "next/head";
-import Link from "next/link";
-import { useQuery } from "urql";
-import { PRODUCT_QUERY } from "../lib/query";
-import Product from "../components/Products";
-import { Gallery } from "../styles/Gallery";
-import Nav from "../components/Nav";
+import styled from "styled-components";
+import { useRef } from "react";
+import bgimg from "../public/mountains.jpg";
+import bgimg2 from "../public/styledbg.png";
+import Image from "next/image";
+import ImageSlider from "../components/ImageSlider";
+export default function Store() {
+  
 
-export default function Home() {
-  //fetch products from strapi
-  const [results] = useQuery({ query: PRODUCT_QUERY });
-  const { data, fetching, error } = results;
-
-  if (fetching) return <p>still loading</p>;
-  if (error) return <p>big error</p>;
-  const products = data.products.data;
+ 
 
   return (
-    
     <div>
       <Head>
         <title>Styled HomePage</title>
@@ -25,12 +19,16 @@ export default function Home() {
       </Head>
 
       <main>
-        <Gallery>
-          {products.map((product) => (
-            <Product key={product.attributes.slug} product={product} />
-          ))}
-        </Gallery>
+        <div className="main-body">
+        <ImageSlider></ImageSlider>
+        </div>
       </main>
     </div>
   );
 }
+
+const Background = styled.div`
+  //put styledbg image as div background
+  background-image: url(${bgimg});
+  font-size: 5rem;
+`;

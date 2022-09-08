@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import pic from "../public/vercel.svg";
 import styled from "styled-components";
-
+import formatMoney from "../lib/formatMoney";
 const { motion } = require("framer-motion");
 
 const stripe = require("stripe")(
@@ -20,6 +20,7 @@ export async function getServerSideProps(params) {
   return { props: { order } };
 }
 
+
 export default function Success({ order }) {
   const route = useRouter();
   return (
@@ -31,6 +32,7 @@ export default function Success({ order }) {
         <h1>Thank you for your order!</h1>
         <h2>A confirmation email has been sent to</h2>
         <h2>{order.customer_details.email}</h2>
+        {console.log(order)}
         <InfoWrapper>
           <Address>
             <h3>Adress</h3>
@@ -48,7 +50,7 @@ export default function Success({ order }) {
               <div key={item.id}>
                 <p>Product: {item.description}</p>
                 <p>Quantity: {item.quantity}</p>
-                <p>Price: {item.price.unit_amount}</p>
+                <p>Price: {formatMoney(item.price.unit_amount)}</p>
               </div>
             ))}
           </OrderInfo>

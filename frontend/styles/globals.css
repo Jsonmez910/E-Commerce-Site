@@ -5,10 +5,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-    margin: 0rem 10%;
-    background: #f1f1f1;
-    --primary: #2d2d2d;
-    --secondary: #535353;
+  margin: 0rem 10%;
+  background: #f1f1f1;
+  --primary: #2d2d2d;
+  --secondary: #535353;
 }
 
 h2 {
@@ -35,6 +35,129 @@ a {
 p {
   line-height: 150%;
 }
+
+.main-body{
+  margin: 0;
+  margin-top: 5rem;
+  padding: 0;
+  height:60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #23E3C9; */
+}
+
+.slider{
+  width: 800px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slides{
+  width: 500%;
+  height: 500px;
+  display: flex;
+}
+
+.slides input{
+  display: none;
+}
+
+.slide{
+  width: 20%;
+  transition: 2s;
+}
+
+.slide img{
+  width: 800px;
+  height: 500px;
+}
+
+/*css for manual slide navigation*/
+
+.navigation-manual{
+  position: absolute;
+  width: 800px;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn{
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+
+.manual-btn:hover{
+  background: #f1c75f;
+}
+
+.radio1:checked ~ .first{
+  margin-left: 0;
+}
+
+.radio2:checked ~ .first{
+  margin-left: -20%;
+}
+
+.radio3:checked ~ .first{
+  margin-left: -40%;
+}
+
+.radio4:checked ~ .first{
+  margin-left: -60%;
+}
+
+/*css for automatic navigation*/
+
+.navigation-auto{
+  position: absolute;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  margin-top: 460px;
+}
+
+.navigation-auto div{
+  border: 2px solid #f1c75f;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+  margin-right: 40px;
+}
+
+.radio1:checked ~ .navigation-auto .auto-btn1{
+  background: #f1c75f;
+}
+
+.radio2:checked ~ .navigation-auto .auto-btn2{
+  background: #f1c75f;
+}
+
+.radio3:checked ~ .navigation-auto .auto-btn3{
+  background: #40D3DC;
+}
+
+.radio4:checked ~ .navigation-auto .auto-btn4{
+  background: #f1c75f;
+}
+      
+
+
+
+
+
 
 @media (prefers-color-scheme: dark) {
   html {
