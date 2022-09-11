@@ -3,6 +3,7 @@ import { useQuery } from "urql";
 import { PRODUCT_QUERY } from "../lib/query";
 import Product from "../components/Products";
 import { Gallery } from "../styles/Gallery";
+import styled from "styled-components";
 
 export default function Store() {
   //fetch products from strapi
@@ -20,6 +21,12 @@ export default function Store() {
           <Product key={product.attributes.slug} product={product} />
         ))}
       </Gallery>
+      <Space></Space>
     </div>
   );
 }
+
+const Space = styled.div`
+  margin-bottom: 5rem;
+  height: 20vh;
+`;

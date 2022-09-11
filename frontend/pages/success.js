@@ -56,7 +56,7 @@ export default function Success({ order }) {
           </OrderInfo>
         </InfoWrapper>
         <button onClick={() => route.push("/")}>Continue Shopping</button>
-        <Image src={pic} alt="success" />
+        {/* <Image src={pic} alt="success" /> */}
       </Card>
     </Wrapper>
   );
